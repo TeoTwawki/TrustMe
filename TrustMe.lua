@@ -148,21 +148,26 @@ local TrustData =
     [1018] = {name = "Iroha II", DoNotCheck = false},
     [1019] = {name = "Shantotto II", DoNotCheck = false},
     [1020] = {name = "unknown!", DoNotCheck = true},
-    [1021] = {name = "unknown!", DoNotCheck = true},
+    [ 1021] = {name = "unknown!", DoNotCheck = true},
     [1022] = {name = "unknown!", DoNotCheck = true},
     [1023] = {name = "unknown!", DoNotCheck = true},
 }
 
-ashita.register_event('command',function(...)
-    local player = AshitaCore:GetDataManager():GetPlayer()
-    local trust = nil
-    for i = 896, 1023, 1 do
-        trust = TrustData[i]
-        if trust then
-            if not player:HasSpell(i) and not trust.DoNotCheck then
-                print("\31\130 You do not yet have Trust: \31\05" .. trust.name .. " (ID: ".. i ..")")
+ashita.register_event("command", function(cmd, nType)
+    local args = cmd:args()
+    if args[1] == "/trustme" then
+        local ta
+        local player = AshitaCore:GetDataManager():GetPlayer()
+        local trust = nil
+        for i = 896, 1023, 1 do
+            trust = TrustData[i]
+            if trust then
+                if not player:HasSpell(i) and not trust.DoNotCheck then
+                    print("\31\130 You do not yet have Trust: \31\05" .. trust.name .. " (ID: ".. i ..")")
+                end
             end
         end
+        return true
     end
-    return true
+    return false
 end)
