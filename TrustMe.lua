@@ -148,7 +148,7 @@ local TrustData =
     [1018] = {name = "Iroha II", DoNotCheck = false},
     [1019] = {name = "Shantotto II", DoNotCheck = false},
     [1020] = {name = "unknown!", DoNotCheck = true},
-    [ 1021] = {name = "unknown!", DoNotCheck = true},
+    [1021] = {name = "unknown!", DoNotCheck = true},
     [1022] = {name = "unknown!", DoNotCheck = true},
     [1023] = {name = "unknown!", DoNotCheck = true},
 }
